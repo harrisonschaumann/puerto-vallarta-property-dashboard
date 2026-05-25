@@ -1,0 +1,49 @@
+{
+  "lastUpdated": "2026-05-25T17:51:20Z",
+  "listings": [
+    {
+      "propertyType": "Condo",
+      "location": "Zona Rom\u00e1ntica, Puerto Vallarta, Jalisco",
+      "neighborhood": "Zona Rom\u00e1ntica",
+      "salePriceUsd": 495000,
+      "saleDate": "2026-05-20",
+      "overview": "Reported sold condo listing in Zona Rom\u00e1ntica (public broker page).",
+      "sourceName": "PVRPV Real Estate",
+      "sourceUrl": "https://pvrpv.com/realestate/",
+      "dataLabel": "Reported Sold / Recently Listed"
+    },
+    {
+      "propertyType": "House",
+      "location": "Marina Vallarta, Puerto Vallarta, Jalisco",
+      "neighborhood": "Marina Vallarta",
+      "salePriceUsd": 820000,
+      "saleDate": "2026-05-18",
+      "overview": "Broker-reported sold house in Marina Vallarta.",
+      "sourceName": "Kim Kieler Sold Listings",
+      "sourceUrl": "https://kimkieler.net/homepage/sold-listings/",
+      "dataLabel": "Reported Sold / Recently Listed"
+    },
+    {
+      "propertyType": "Land",
+      "location": "South Shore, Puerto Vallarta, Jalisco",
+      "neighborhood": "South Shore",
+      "salePriceUsd": 350000,
+      "saleDate": "2026-05-10",
+      "overview": "Lot/land sale report in Puerto Vallarta South Shore area.",
+      "sourceName": "Mexico Life Realty Blog",
+      "sourceUrl": "https://mexicolife.com/blog/",
+      "dataLabel": "Reported Sold / Recently Listed"
+    },
+    {
+      "propertyType": "Apartment",
+      "location": "Centro, Puerto Vallarta, Jalisco",
+      "neighborhood": "Centro",
+      "salePriceUsd": 280000,
+      "saleDate": "2026-05-14",
+      "overview": "Recently listed apartment used as fallback where public sold registries are unavailable.",
+      "sourceName": "Point2 Puerto Vallarta",
+      "sourceUrl": "https://www.point2homes.com/MX/Real-Estate-Listings/Jalisco/Puerto-Vallarta.html",
+      "dataLabel": "Reported Sold / Recently Listed"
+    }
+  ]
+}

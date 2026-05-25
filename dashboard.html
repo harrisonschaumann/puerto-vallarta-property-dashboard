@@ -3,144 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paua Property Group | Puerto Vallarta Real Estate Dashboard</title>
+  <meta http-equiv="refresh" content="600" />
+  <title>Paua Property Group | Puerto Vallarta Real Estate Intelligence</title>
   <style>
-    :root {
-      --bg: #f5f7fb;
-      --surface: #ffffff;
-      --text: #0f172a;
-      --muted: #52607a;
-      --line: #dbe3ef;
-      --brand: #0f3d91;
-      --brand-2: #1d6ee2;
-      --brand-soft: #eaf2ff;
-      --accent: #14b8a6;
-      --warning-bg: #fff8e6;
-      --warning-text: #8a5200;
-      --radius: 16px;
-      --shadow: 0 14px 35px rgba(15, 23, 42, 0.08);
-    }
-
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      color: var(--text);
-      background: linear-gradient(180deg, #eef3fb 0, var(--bg) 320px);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      line-height: 1.5;
-    }
-    .container { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
-
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,.9);
-      backdrop-filter: blur(8px);
-    }
-    .nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-    .logo { font-weight: 800; color: var(--brand); letter-spacing: .02em; }
-    .tagline { color: var(--muted); font-size: .92rem; }
-
-    .hero {
-      margin: 26px 0 20px;
-      padding: 26px;
-      border-radius: var(--radius);
-      background: radial-gradient(circle at right top, rgba(29,110,226,.14), transparent 42%), var(--surface);
-      border: 1px solid var(--line);
-      box-shadow: var(--shadow);
-    }
-    .hero h1 { margin: 0 0 10px; font-size: clamp(1.7rem, 4vw, 2.5rem); }
-    .lead, .meta { margin: 0; color: var(--muted); }
-    .meta { margin-top: 10px; font-size: .92rem; }
-
-    .status-row { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
-    .badge { padding: 6px 10px; border-radius: 999px; font-size: 12px; font-weight: 700; border: 1px solid transparent; }
-    .badge.warning { background: var(--warning-bg); color: var(--warning-text); border-color: #f7deaa; }
-
-    .stats { margin-top: 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; }
-    .stat { padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: #fbfdff; }
-    .label { color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
-    .value { margin-top: 4px; font-size: 1.08rem; font-weight: 800; }
-
-    .section-title { margin: 18px 0 10px; font-size: 1.1rem; color: var(--brand); }
-    .filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(185px, 1fr)); gap: 12px; }
-    .panel { padding: 14px; border-radius: 14px; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
-    label { display: block; margin-bottom: 6px; font-size: 12px; font-weight: 700; }
-    select, input { width: 100%; border: 1px solid var(--line); border-radius: 10px; padding: 10px; font-size: 14px; }
-
-    .table-wrap { margin-top: 14px; overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; min-width: 900px; }
-    th, td { text-align: left; padding: 12px; border-bottom: 1px solid #e9eef8; vertical-align: top; }
-    th { background: var(--brand-soft); color: #163f8c; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
-    td { font-size: 14px; }
-    .empty { padding: 14px; color: var(--muted); }
-
-    footer { margin: 24px 0 20px; color: var(--muted); font-size: .9rem; text-align: center; }
-    a { color: var(--brand-2); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    @media (max-width: 760px) {
-      .container { padding: 0 12px; }
-      .hero, .panel { border-radius: 12px; padding: 14px; }
-      .tagline { display: none; }
-      th, td { padding: 10px; }
-    }
+    :root { --bg:#f4f8fb;--surface:#fff;--text:#10243e;--muted:#5c6f86;--line:#d8e2ee;--brand:#0f3d91;--brand2:#2f7be8;--soft:#eef5ff;--radius:16px;--shadow:0 12px 30px rgba(13,33,61,.08); }
+    *{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#eaf2fb 0,var(--bg) 280px);font-family:Inter,system-ui,sans-serif;color:var(--text)}
+    .container{max-width:1180px;margin:0 auto;padding:0 20px}.header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(7px);border-bottom:1px solid var(--line);z-index:9}
+    .nav{display:flex;justify-content:space-between;align-items:center;min-height:70px}.logo{font-weight:800;color:var(--brand)}
+    .hero,.panel{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.stat{padding:10px;border:1px solid var(--line);border-radius:12px;background:#fbfdff}
+    .label{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase}.value{font-size:1.1rem;font-weight:800}.muted{color:var(--muted)}
+    .badges{display:flex;gap:8px;flex-wrap:wrap}.badge{padding:5px 9px;border-radius:999px;font-size:12px;font-weight:700}
+    .confirmed{background:#dcfce7;color:#166534}.reported{background:#fff7d6;color:#8a5200}.listed{background:#e6f0ff;color:#19458b}.unknown{background:#f1f5f9;color:#334155}
+    table{width:100%;border-collapse:collapse;min-width:980px}th,td{padding:10px;border-bottom:1px solid #e7edf6;text-align:left;vertical-align:top}th{background:var(--soft);font-size:12px}
+    .table-wrap{overflow-x:auto}.summary{font-size:.98rem;line-height:1.55}
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <div class="logo">Paua Property Group</div>
-      <div class="tagline">Puerto Vallarta market dashboard • refreshed daily</div>
+<header class="header"><div class="container nav"><div class="logo">Paua Property Group</div><div class="muted">Puerto Vallarta real estate intelligence • auto-refresh every 10 minutes</div></div></header>
+<main class="container">
+  <section class="hero">
+    <h1>Puerto Vallarta Market Intelligence Dashboard</h1>
+    <p class="muted" id="meta">Loading data…</p>
+    <div class="grid">
+      <div class="stat"><div class="label">Last Updated</div><div class="value" id="lastUpdated">-</div></div>
+      <div class="stat"><div class="label">New Since Yesterday</div><div class="value" id="newSinceYesterday">-</div></div>
+      <div class="stat"><div class="label">Shown Listings</div><div class="value" id="shownCount">-</div></div>
+      <div class="stat"><div class="label">Median Price</div><div class="value" id="medianPrice">-</div></div>
     </div>
-  </header>
+  </section>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Puerto Vallarta Real Estate Market Snapshot</h1>
-      <p class="lead">Professional at-a-glance dashboard for neighborhood pricing signals, property mix, and daily market updates.</p>
-      <p class="meta" id="meta">Loading latest data…</p>
-      <div class="status-row">
-        <span class="badge warning">Sample/reported data mode</span>
-        <span class="lead">Sold-property transparency is limited; records are clearly labeled by confidence.</span>
-      </div>
-      <div class="stats">
-        <div class="stat"><div class="label">Shown Listings</div><div class="value" id="shownCount">-</div></div>
-        <div class="stat"><div class="label">Median Price</div><div class="value" id="medianPrice">-</div></div>
-        <div class="stat"><div class="label">Neighborhoods</div><div class="value" id="hoodCount">-</div></div>
-      </div>
-    </section>
+  <section class="panel"><h3>AI-Style Market Summary</h3><p id="marketSummary" class="summary muted">Generating summary…</p></section>
 
-    <h2 class="section-title">Dashboard Filters</h2>
-    <section class="filters">
-      <div class="panel"><label for="typeFilter">Property Type</label><select id="typeFilter"><option value="">All</option></select></div>
-      <div class="panel"><label for="neighborhoodFilter">Neighborhood</label><select id="neighborhoodFilter"><option value="">All</option></select></div>
-      <div class="panel"><label for="minPrice">Min Price (USD)</label><input id="minPrice" type="number" min="0" placeholder="0" /></div>
-      <div class="panel"><label for="maxPrice">Max Price (USD)</label><input id="maxPrice" type="number" min="0" placeholder="2500000" /></div>
-    </section>
-
-    <section class="panel table-wrap">
-      <table>
-        <thead><tr><th>Type</th><th>Address / Location</th><th>Neighborhood</th><th>Indicative Price (USD)</th><th>Status Date</th><th>Overview</th><th>Source</th></tr></thead>
-        <tbody id="rows"></tbody>
-      </table>
-      <p class="empty" id="empty" hidden>No results for the selected filters.</p>
-    </section>
-  </main>
-
-  <footer>
-    © <span id="year"></span> Paua Property Group • Puerto Vallarta, Jalisco • Built for GitHub Pages
-  </footer>
-
+  <section class="panel table-wrap">
+    <table><thead><tr><th>Type</th><th>Address / Location</th><th>Neighborhood</th><th>Price (USD)</th><th>Status Date</th><th>Confidence</th><th>Overview</th><th>Source</th></tr></thead><tbody id="rows"></tbody></table>
+  </section>
+</main>
 <script>
-let data=[];
-const fmt=(n)=> n ? new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n) : 'Not public';
-function updateStats(rows){document.getElementById('shownCount').textContent=rows.length;const prices=rows.map(r=>r.salePriceUsd).filter(Boolean).sort((a,b)=>a-b);document.getElementById('medianPrice').textContent=fmt(prices.length?prices[Math.floor(prices.length/2)]:null);document.getElementById('hoodCount').textContent=new Set(rows.map(r=>r.neighborhood).filter(Boolean)).size;}
-function render(){const type=typeFilter.value, hood=neighborhoodFilter.value, min=Number(minPrice.value||0), max=Number(maxPrice.value||Number.MAX_SAFE_INTEGER);const filtered=data.filter(r=>(!type||r.propertyType===type)&&(!hood||r.neighborhood===hood)&&((r.salePriceUsd||0)>=min)&&((r.salePriceUsd||Number.MAX_SAFE_INTEGER)<=max));rows.innerHTML=filtered.map(r=>`<tr><td>${r.propertyType}<br>${r.dataLabel!=='Sold'?`<span class="badge warning">${r.dataLabel}</span>`:''}</td><td>${r.location}</td><td>${r.neighborhood||'N/A'}</td><td>${fmt(r.salePriceUsd)}</td><td>${r.saleDate||'Not public'}</td><td>${r.overview}</td><td><a href="${r.sourceUrl}" target="_blank" rel="noopener">${r.sourceName}</a></td></tr>`).join('');empty.hidden=filtered.length!==0;updateStats(filtered);}
-fetch('./data/latest.json').then(r=>r.json()).then(j=>{data=j.listings||[];const mode=j.dataMode||'sample';meta.textContent=`Last Updated: ${j.lastUpdated} UTC • Total Listings: ${data.length} • Data Mode: ${mode}`;document.querySelector('.status-row .badge').textContent=mode==='live_verified'?'Live verified data mode':'Sample/reported data mode';[...new Set(data.map(d=>d.propertyType))].sort().forEach(v=>typeFilter.appendChild(new Option(v,v)));[...new Set(data.map(d=>d.neighborhood).filter(Boolean))].sort().forEach(v=>neighborhoodFilter.appendChild(new Option(v,v)));['typeFilter','neighborhoodFilter','minPrice','maxPrice'].forEach(id=>document.getElementById(id).addEventListener('input',render));render();}).catch(()=>{meta.textContent='Could not load data/latest.json. Run the refresh workflow or script.';});
-document.getElementById('year').textContent=new Date().getFullYear();
+const fmt=(n)=>n?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n):'Not public';
+const confClass=(c)=>({"Confirmed Sold":"confirmed","Reported Sold":"reported","Recently Listed":"listed","Unknown":"unknown"}[c]||"unknown");
+function render(data){
+  const listingRows=data.listings||[];
+  document.getElementById('lastUpdated').textContent=data.lastUpdatedLocal||data.lastUpdated||'-';
+  document.getElementById('newSinceYesterday').textContent=data.newSinceYesterday ?? 0;
+  document.getElementById('shownCount').textContent=listingRows.length;
+  const prices=listingRows.map(r=>r.salePriceUsd).filter(Boolean).sort((a,b)=>a-b);
+  document.getElementById('medianPrice').textContent=fmt(prices.length?prices[Math.floor(prices.length/2)]:null);
+  document.getElementById('marketSummary').textContent=data.marketSummary||'No summary available.';
+  document.getElementById('meta').textContent=`Updated ${data.lastUpdated} • +${data.changeSummary?.new||0} new • ~${data.changeSummary?.changed||0} changed • -${data.changeSummary?.removed||0} removed`;
+  document.getElementById('rows').innerHTML=listingRows.map(r=>`<tr><td>${r.propertyType}</td><td>${r.location}</td><td>${r.neighborhood||'N/A'}</td><td>${fmt(r.salePriceUsd)}</td><td>${r.saleDate||'Not public'}</td><td><span class="badge ${confClass(r.confidence)}">${r.confidence||'Unknown'}</span></td><td>${r.overview}</td><td><a href="${r.sourceUrl}" target="_blank" rel="noopener">${r.sourceName}</a></td></tr>`).join('');
+}
+fetch('./data/latest.json').then(r=>r.json()).then(render).catch(()=>{document.getElementById('meta').textContent='Could not load data/latest.json';});
+setInterval(()=>window.location.reload(), 600000);
 </script>
 </body>
 </html>

@@ -1,6 +1,17 @@
 {
-  "lastUpdated": "2026-05-25T19:25:47Z",
-  "dataMode": "sample",
+  "lastUpdated": "2026-05-25T19:35:04Z",
+  "lastUpdatedLocal": "2026-05-25 13:35 UTC-06:00",
+  "dataMode": "reported_public_sources",
+  "newSinceYesterday": 0,
+  "changeSummary": {
+    "new": 0,
+    "removed": 0,
+    "changed": 0,
+    "newIds": [],
+    "removedIds": [],
+    "changedIds": []
+  },
+  "marketSummary": "Market pulse: 0 new, 0 changed, and 0 removed listings since yesterday. Inventory sample size is 6. Median visible price is about $500,000. Most common property types: Condo (2), House (2), Land (1).",
   "listings": [
     {
       "propertyType": "Condo",
@@ -11,7 +22,9 @@
       "overview": "2-bed condo with partial ocean view, walkable to Los Muertos Beach; status sourced from public listing activity.",
       "sourceName": "PVRPV Real Estate",
       "sourceUrl": "https://pvrpv.com/realestate/",
-      "dataLabel": "Reported Sold / Recently Listed"
+      "dataLabel": "Reported Sold / Recently Listed",
+      "id": "pvrpv-real-estate|https://pvrpv.com/realestate/|2-bed-condo-with-partial-ocean-view,-walkable-to-los-muertos-beach;-status-sourced-from-public-listing-activity.",
+      "confidence": "Unknown"
     },
     {
       "propertyType": "House",
@@ -22,7 +35,9 @@
       "overview": "3-bed marina home near golf and boardwalk amenities; closing details not publicly verified in deed records.",
       "sourceName": "Kim Kieler Sold Listings",
       "sourceUrl": "https://kimkieler.net/homepage/sold-listings/",
-      "dataLabel": "Reported Sold / Recently Listed"
+      "dataLabel": "Reported Sold / Recently Listed",
+      "id": "kim-kieler-sold-listings|https://kimkieler.net/homepage/sold-listings/|3-bed-marina-home-near-golf-and-boardwalk-amenities;-closing-details-not-publicly-verified-in-deed-records.",
+      "confidence": "Unknown"
     },
     {
       "propertyType": "Land",
@@ -33,7 +48,9 @@
       "overview": "Hillside parcel with bay-view potential; price reflects active market signal rather than notarial transfer confirmation.",
       "sourceName": "Mexico Life Realty Blog",
       "sourceUrl": "https://mexicolife.com/blog/",
-      "dataLabel": "Reported Sold / Recently Listed"
+      "dataLabel": "Reported Sold / Recently Listed",
+      "id": "mexico-life-realty-blog|https://mexicolife.com/blog/|hillside-parcel-with-bay-view-potential;-price-reflects-active-market-signal-rather-than-notarial-transfer-confirmation.",
+      "confidence": "Unknown"
     },
     {
       "propertyType": "Apartment",
@@ -44,7 +61,9 @@
       "overview": "Downtown apartment with rental appeal and walkability to the Malecón; included as market sample data.",
       "sourceName": "Point2 Puerto Vallarta",
       "sourceUrl": "https://www.point2homes.com/MX/Real-Estate-Listings/Jalisco/Puerto-Vallarta.html",
-      "dataLabel": "Sample Market Listing"
+      "dataLabel": "Sample Market Listing",
+      "id": "point2-puerto-vallarta|https://www.point2homes.com/mx/real-estate-listings/jalisco/puerto-vallarta.html|downtown-apartment-with-rental-appeal-and-walkability-to-the-malecón;-included-as-market-sample-data.",
+      "confidence": "Unknown"
     },
     {
       "propertyType": "Condo",
@@ -55,7 +74,9 @@
       "overview": "Luxury hillside condo in Amapas with terrace and sunset exposure; represents curated sample market data.",
       "sourceName": "Local agency public listings",
       "sourceUrl": "https://www.vallartarealestate.com/",
-      "dataLabel": "Sample Market Listing"
+      "dataLabel": "Sample Market Listing",
+      "id": "local-agency-public-listings|https://www.vallartarealestate.com/|luxury-hillside-condo-in-amapas-with-terrace-and-sunset-exposure;-represents-curated-sample-market-data.",
+      "confidence": "Unknown"
     },
     {
       "propertyType": "House",
@@ -66,7 +87,9 @@
       "overview": "Modern family home in Fluvial with nearby schools and shopping; included for neighborhood pricing context.",
       "sourceName": "Public MLS mirror",
       "sourceUrl": "https://www.inmuebles24.com/",
-      "dataLabel": "Sample Market Listing"
+      "dataLabel": "Sample Market Listing",
+      "id": "public-mls-mirror|https://www.inmuebles24.com/|modern-family-home-in-fluvial-with-nearby-schools-and-shopping;-included-for-neighborhood-pricing-context.",
+      "confidence": "Unknown"
     }
   ]
 }

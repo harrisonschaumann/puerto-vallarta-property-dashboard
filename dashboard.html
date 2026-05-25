@@ -4,54 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="refresh" content="600" />
-  <title>Paua Property Group | Puerto Vallarta Real Estate Intelligence</title>
+  <title>Paua Property Group | Puerto Vallarta Real Estate Tracker</title>
   <style>
-    :root { --bg:#f4f8fb;--surface:#fff;--text:#10243e;--muted:#5c6f86;--line:#d8e2ee;--brand:#0f3d91;--brand2:#2f7be8;--soft:#eef5ff;--radius:16px;--shadow:0 12px 30px rgba(13,33,61,.08); }
-    *{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#eaf2fb 0,var(--bg) 280px);font-family:Inter,system-ui,sans-serif;color:var(--text)}
-    .container{max-width:1180px;margin:0 auto;padding:0 20px}.header{position:sticky;top:0;background:rgba(255,255,255,.92);backdrop-filter:blur(7px);border-bottom:1px solid var(--line);z-index:9}
+    :root { --bg:#f4f8fb;--surface:#fff;--text:#10243e;--muted:#5c6f86;--line:#d8e2ee;--brand:#0f3d91;--soft:#eef5ff;--radius:16px; }
+    *{box-sizing:border-box} body{margin:0;background:var(--bg);font-family:Inter,system-ui,sans-serif;color:var(--text)}
+    .container{max-width:1280px;margin:0 auto;padding:0 20px}.header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:9}
     .nav{display:flex;justify-content:space-between;align-items:center;min-height:70px}.logo{font-weight:800;color:var(--brand)}
-    .hero,.panel{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}.stat{padding:10px;border:1px solid var(--line);border-radius:12px;background:#fbfdff}
-    .label{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase}.value{font-size:1.1rem;font-weight:800}.muted{color:var(--muted)}
-    .badges{display:flex;gap:8px;flex-wrap:wrap}.badge{padding:5px 9px;border-radius:999px;font-size:12px;font-weight:700}
-    .confirmed{background:#dcfce7;color:#166534}.reported{background:#fff7d6;color:#8a5200}.listed{background:#e6f0ff;color:#19458b}.unknown{background:#f1f5f9;color:#334155}
-    table{width:100%;border-collapse:collapse;min-width:980px}th,td{padding:10px;border-bottom:1px solid #e7edf6;text-align:left;vertical-align:top}th{background:var(--soft);font-size:12px}
-    .table-wrap{overflow-x:auto}.summary{font-size:.98rem;line-height:1.55}
+    .panel{margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px}.stat{padding:10px;border:1px solid var(--line);border-radius:12px}
+    .label{font-size:12px;color:var(--muted);font-weight:700;text-transform:uppercase}.value{font-size:1.05rem;font-weight:800}
+    .badge{padding:3px 8px;border-radius:999px;font-size:11px;font-weight:700;display:inline-block;margin:2px}
+    .new{background:#dcfce7;color:#166534}.pending{background:#fef3c7;color:#92400e}.sold{background:#dbeafe;color:#1e40af}.price_reduction{background:#fee2e2;color:#991b1b}.back_on_market{background:#ede9fe;color:#5b21b6}
+    table{width:100%;border-collapse:collapse;min-width:1250px}th,td{padding:9px;border-bottom:1px solid #e7edf6;text-align:left;vertical-align:top}th{background:var(--soft);font-size:12px}
+    .table-wrap{overflow-x:auto}
   </style>
 </head>
 <body>
-<header class="header"><div class="container nav"><div class="logo">Paua Property Group</div><div class="muted">Puerto Vallarta real estate intelligence • auto-refresh every 10 minutes</div></div></header>
+<header class="header"><div class="container nav"><div class="logo">Paua Property Group</div><div>Auto-refresh every 10 minutes</div></div></header>
 <main class="container">
-  <section class="hero">
-    <h1>Puerto Vallarta Market Intelligence Dashboard</h1>
-    <p class="muted" id="meta">Loading data…</p>
+  <section class="panel">
+    <h1>Puerto Vallarta Real Estate Market Tracker</h1>
+    <p id="meta">Loading…</p>
     <div class="grid">
       <div class="stat"><div class="label">Last Updated</div><div class="value" id="lastUpdated">-</div></div>
-      <div class="stat"><div class="label">New Since Yesterday</div><div class="value" id="newSinceYesterday">-</div></div>
-      <div class="stat"><div class="label">Shown Listings</div><div class="value" id="shownCount">-</div></div>
-      <div class="stat"><div class="label">Median Price</div><div class="value" id="medianPrice">-</div></div>
+      <div class="stat"><div class="label">New Today</div><div class="value" id="newToday">-</div></div>
+      <div class="stat"><div class="label">New This Week</div><div class="value" id="newWeek">-</div></div>
+      <div class="stat"><div class="label">Price Drops</div><div class="value" id="priceDrops">-</div></div>
+      <div class="stat"><div class="label">Recently Sold</div><div class="value" id="recentSold">-</div></div>
+      <div class="stat"><div class="label">Average Listing Price</div><div class="value" id="avgList">-</div></div>
     </div>
   </section>
-
-  <section class="panel"><h3>AI-Style Market Summary</h3><p id="marketSummary" class="summary muted">Generating summary…</p></section>
-
+  <section class="panel"><h3>Neighborhood Activity</h3><div id="hood"></div></section>
   <section class="panel table-wrap">
-    <table><thead><tr><th>Type</th><th>Address / Location</th><th>Neighborhood</th><th>Price (USD)</th><th>Status Date</th><th>Confidence</th><th>Overview</th><th>Source</th></tr></thead><tbody id="rows"></tbody></table>
+    <table><thead><tr><th>Type</th><th>Address/Location</th><th>Neighborhood</th><th>Listing Price</th><th>Sold Price</th><th>Date Added</th><th>Status</th><th>Overview</th><th>Source</th><th>Highlights</th></tr></thead><tbody id="rows"></tbody></table>
   </section>
 </main>
 <script>
-const fmt=(n)=>n?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n):'Not public';
-const confClass=(c)=>({"Confirmed Sold":"confirmed","Reported Sold":"reported","Recently Listed":"listed","Unknown":"unknown"}[c]||"unknown");
+const fmt=(n)=>n?new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n):'N/A';
+const highlights=(d,r)=>{
+  const tags=[];
+  if((d.highlights?.newTodayIds||[]).includes(r.id)) tags.push('<span class="badge new">New today</span>');
+  if((d.highlights?.newThisWeekIds||[]).includes(r.id)) tags.push('<span class="badge new">New this week</span>');
+  if((d.highlights?.priceDropIds||[]).includes(r.id)) tags.push('<span class="badge price_reduction">Price drop</span>');
+  if((d.highlights?.recentlySoldIds||[]).includes(r.id)) tags.push('<span class="badge sold">Recently sold</span>');
+  return tags.join(' ');
+};
 function render(data){
-  const listingRows=data.listings||[];
+  const a=data.analytics||{};
   document.getElementById('lastUpdated').textContent=data.lastUpdatedLocal||data.lastUpdated||'-';
-  document.getElementById('newSinceYesterday').textContent=data.newSinceYesterday ?? 0;
-  document.getElementById('shownCount').textContent=listingRows.length;
-  const prices=listingRows.map(r=>r.salePriceUsd).filter(Boolean).sort((a,b)=>a-b);
-  document.getElementById('medianPrice').textContent=fmt(prices.length?prices[Math.floor(prices.length/2)]:null);
-  document.getElementById('marketSummary').textContent=data.marketSummary||'No summary available.';
+  document.getElementById('newToday').textContent=a.newListingsToday??0;
+  document.getElementById('newWeek').textContent=a.newListingsThisWeek??0;
+  document.getElementById('priceDrops').textContent=a.priceDrops??0;
+  document.getElementById('recentSold').textContent=a.recentlySold??0;
+  document.getElementById('avgList').textContent=fmt(a.averageListingPriceUsd);
   document.getElementById('meta').textContent=`Updated ${data.lastUpdated} • +${data.changeSummary?.new||0} new • ~${data.changeSummary?.changed||0} changed • -${data.changeSummary?.removed||0} removed`;
-  document.getElementById('rows').innerHTML=listingRows.map(r=>`<tr><td>${r.propertyType}</td><td>${r.location}</td><td>${r.neighborhood||'N/A'}</td><td>${fmt(r.salePriceUsd)}</td><td>${r.saleDate||'Not public'}</td><td><span class="badge ${confClass(r.confidence)}">${r.confidence||'Unknown'}</span></td><td>${r.overview}</td><td><a href="${r.sourceUrl}" target="_blank" rel="noopener">${r.sourceName}</a></td></tr>`).join('');
+  const hood=Object.entries(a.neighborhoodActivity||{}).map(([n,v])=>`<div><b>${n}</b>: ${v.count} listings • avg ${fmt(v.avgListPrice)}</div>`).join('');
+  document.getElementById('hood').innerHTML=hood||'No neighborhood data.';
+  document.getElementById('rows').innerHTML=(data.listings||[]).map(r=>`<tr><td>${r.propertyType}</td><td>${r.address}<br><small>${r.location}</small></td><td>${r.neighborhood}</td><td>${fmt(r.listingPriceUsd)}</td><td>${fmt(r.soldPriceUsd)}</td><td>${r.dateAdded}</td><td><span class="badge ${r.status}">${r.status.replaceAll('_',' ')}</span></td><td>${r.overview}</td><td><a href="${r.sourceUrl}" target="_blank">${r.sourceName}</a></td><td>${highlights(data,r)}</td></tr>`).join('');
 }
 fetch('./data/latest.json').then(r=>r.json()).then(render).catch(()=>{document.getElementById('meta').textContent='Could not load data/latest.json';});
 setInterval(()=>window.location.reload(), 600000);

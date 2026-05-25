@@ -263,6 +263,23 @@
           "confidence": "Unknown"
         }
       ]
+    },
+    {
+      "runAt": "2026-05-25T19:50:59Z",
+      "listingCount": 8,
+      "new": 8,
+      "changed": 0,
+      "removed": 6,
+      "sold": 1,
+      "avgListPrice": 487500,
+      "avgSoldPrice": 518950,
+      "statusMix": {
+        "new": 3,
+        "sold": 1,
+        "pending": 2,
+        "price_reduction": 1,
+        "back_on_market": 1
+      }
     }
   ]
 }

@@ -1,95 +1,256 @@
 {
-  "lastUpdated": "2026-05-25T19:45:35Z",
-  "lastUpdatedLocal": "2026-05-25 13:45 UTC-06:00",
-  "dataMode": "reported_public_sources",
-  "newSinceYesterday": 0,
+  "lastUpdated": "2026-05-25T19:50:59Z",
+  "lastUpdatedLocal": "2026-05-25 13:50 UTC-06:00",
+  "dataMode": "public_web_signals_with_status_inference",
+  "newSinceYesterday": 8,
   "changeSummary": {
-    "new": 0,
-    "removed": 0,
+    "new": 8,
+    "removed": 6,
     "changed": 0,
-    "newIds": [],
-    "removedIds": [],
+    "newIds": [
+      "inmuebles24|https://www.inmuebles24.com/|lago-titicaca-91,-puerto-vallarta,-jalisco|house",
+      "kim-kieler-sold-listings|https://kimkieler.net/homepage/sold-listings/|paseo-de-la-marina-24,-puerto-vallarta,-jalisco|house",
+      "mexico-life-realty-blog|https://mexicolife.com/blog/|carr.-barra-de-navidad-km-7,-puerto-vallarta,-jalisco|land",
+      "point2-puerto-vallarta|https://www.point2homes.com/mx/real-estate-listings/jalisco/puerto-vallarta.html|calle-morelos-118,-puerto-vallarta,-jalisco|apartment",
+      "pvrpv-real-estate|https://pvrpv.com/realestate/|brasil-1448,-puerto-vallarta,-jalisco|apartment",
+      "pvrpv-real-estate|https://pvrpv.com/realestate/|pilitas-166,-puerto-vallarta,-jalisco|condo",
+      "vallarta-real-estate|https://www.vallartarealestate.com/|amapas-353,-puerto-vallarta,-jalisco|condo",
+      "vallarta-real-estate|https://www.vallartarealestate.com/|parcela-17,-puerto-vallarta,-jalisco|land"
+    ],
+    "removedIds": [
+      "kim-kieler-sold-listings|https://kimkieler.net/homepage/sold-listings/|3-bed-marina-home-near-golf-and-boardwalk-amenities;-closing-details-not-publicly-verified-in-deed-records.",
+      "local-agency-public-listings|https://www.vallartarealestate.com/|luxury-hillside-condo-in-amapas-with-terrace-and-sunset-exposure;-represents-curated-sample-market-data.",
+      "mexico-life-realty-blog|https://mexicolife.com/blog/|hillside-parcel-with-bay-view-potential;-price-reflects-active-market-signal-rather-than-notarial-transfer-confirmation.",
+      "point2-puerto-vallarta|https://www.point2homes.com/mx/real-estate-listings/jalisco/puerto-vallarta.html|downtown-apartment-with-rental-appeal-and-walkability-to-the-malecón;-included-as-market-sample-data.",
+      "public-mls-mirror|https://www.inmuebles24.com/|modern-family-home-in-fluvial-with-nearby-schools-and-shopping;-included-for-neighborhood-pricing-context.",
+      "pvrpv-real-estate|https://pvrpv.com/realestate/|2-bed-condo-with-partial-ocean-view,-walkable-to-los-muertos-beach;-status-sourced-from-public-listing-activity."
+    ],
     "changedIds": []
   },
-  "marketSummary": "Market pulse: 0 new, 0 changed, and 0 removed listings since yesterday. Inventory sample size is 6. Median visible price is about $500,000. Most common property types: Condo (2), House (2), Land (1).",
+  "highlights": {
+    "newTodayIds": [
+      "point2-puerto-vallarta|https://www.point2homes.com/mx/real-estate-listings/jalisco/puerto-vallarta.html|calle-morelos-118,-puerto-vallarta,-jalisco|apartment"
+    ],
+    "newThisWeekIds": [
+      "point2-puerto-vallarta|https://www.point2homes.com/mx/real-estate-listings/jalisco/puerto-vallarta.html|calle-morelos-118,-puerto-vallarta,-jalisco|apartment",
+      "pvrpv-real-estate|https://pvrpv.com/realestate/|pilitas-166,-puerto-vallarta,-jalisco|condo",
+      "kim-kieler-sold-listings|https://kimkieler.net/homepage/sold-listings/|paseo-de-la-marina-24,-puerto-vallarta,-jalisco|house",
+      "mexico-life-realty-blog|https://mexicolife.com/blog/|carr.-barra-de-navidad-km-7,-puerto-vallarta,-jalisco|land",
+      "vallarta-real-estate|https://www.vallartarealestate.com/|amapas-353,-puerto-vallarta,-jalisco|condo",
+      "inmuebles24|https://www.inmuebles24.com/|lago-titicaca-91,-puerto-vallarta,-jalisco|house",
+      "pvrpv-real-estate|https://pvrpv.com/realestate/|brasil-1448,-puerto-vallarta,-jalisco|apartment",
+      "vallarta-real-estate|https://www.vallartarealestate.com/|parcela-17,-puerto-vallarta,-jalisco|land"
+    ],
+    "priceDropIds": [
+      "mexico-life-realty-blog|https://mexicolife.com/blog/|carr.-barra-de-navidad-km-7,-puerto-vallarta,-jalisco|land"
+    ],
+    "recentlySoldIds": [
+      "pvrpv-real-estate|https://pvrpv.com/realestate/|pilitas-166,-puerto-vallarta,-jalisco|condo"
+    ]
+  },
+  "analytics": {
+    "newListingsToday": 1,
+    "newListingsThisWeek": 8,
+    "priceDrops": 1,
+    "recentlySold": 1,
+    "averageListingPriceUsd": 487500,
+    "averageSoldPriceUsd": 518950,
+    "statusMix": {
+      "new": 3,
+      "sold": 1,
+      "pending": 2,
+      "price_reduction": 1,
+      "back_on_market": 1
+    },
+    "propertyTypeMix": {
+      "Apartment": 2,
+      "Condo": 2,
+      "House": 2,
+      "Land": 2
+    },
+    "neighborhoodActivity": {
+      "Centro": {
+        "count": 1,
+        "avgListPrice": 315000
+      },
+      "Zona Romántica": {
+        "count": 1,
+        "avgListPrice": 535000
+      },
+      "Marina Vallarta": {
+        "count": 1,
+        "avgListPrice": 890000
+      },
+      "South Shore": {
+        "count": 1,
+        "avgListPrice": 420000
+      },
+      "Amapas": {
+        "count": 1,
+        "avgListPrice": 760000
+      },
+      "Fluvial Vallarta": {
+        "count": 1,
+        "avgListPrice": 465000
+      },
+      "5 de Diciembre": {
+        "count": 1,
+        "avgListPrice": 280000
+      },
+      "El Nogalito": {
+        "count": 1,
+        "avgListPrice": 235000
+      }
+    },
+    "trend": [
+      {
+        "runAt": "2026-05-25T19:34:55Z",
+        "listingCount": 6,
+        "new": 0,
+        "sold": 0
+      },
+      {
+        "runAt": "2026-05-25T19:35:04Z",
+        "listingCount": 6,
+        "new": 0,
+        "sold": 0
+      },
+      {
+        "runAt": "2026-05-25T19:45:35Z",
+        "listingCount": 6,
+        "new": 0,
+        "sold": 0
+      }
+    ]
+  },
   "listings": [
     {
+      "propertyType": "Apartment",
+      "address": "Calle Morelos 118, Puerto Vallarta, Jalisco",
+      "location": "Puerto Vallarta, Jalisco, Mexico",
+      "neighborhood": "Centro",
+      "listingPriceUsd": 315000,
+      "soldPriceUsd": null,
+      "dateAdded": "2026-05-25",
+      "status": "new",
+      "statusDate": "2026-05-25",
+      "overview": "Walkable downtown apartment near Malecón.",
+      "sourceName": "Point2 Puerto Vallarta",
+      "sourceUrl": "https://www.point2homes.com/MX/Real-Estate-Listings/Jalisco/Puerto-Vallarta.html",
+      "previousPriceUsd": null,
+      "id": "point2-puerto-vallarta|https://www.point2homes.com/mx/real-estate-listings/jalisco/puerto-vallarta.html|calle-morelos-118,-puerto-vallarta,-jalisco|apartment"
+    },
+    {
       "propertyType": "Condo",
-      "location": "Pilitas St, Zona Romántica, Puerto Vallarta, Jalisco",
+      "address": "Pilitas 166, Puerto Vallarta, Jalisco",
+      "location": "Puerto Vallarta, Jalisco, Mexico",
       "neighborhood": "Zona Romántica",
-      "salePriceUsd": 535000,
-      "saleDate": "2026-05-22",
-      "overview": "2-bed condo with partial ocean view, walkable to Los Muertos Beach; status sourced from public listing activity.",
+      "listingPriceUsd": 535000,
+      "soldPriceUsd": 518950,
+      "dateAdded": "2026-05-24",
+      "status": "sold",
+      "statusDate": "2026-05-24",
+      "overview": "2-bed condo with partial ocean view.",
       "sourceName": "PVRPV Real Estate",
       "sourceUrl": "https://pvrpv.com/realestate/",
-      "dataLabel": "Reported Sold / Recently Listed",
-      "id": "pvrpv-real-estate|https://pvrpv.com/realestate/|2-bed-condo-with-partial-ocean-view,-walkable-to-los-muertos-beach;-status-sourced-from-public-listing-activity.",
-      "confidence": "Unknown"
+      "previousPriceUsd": null,
+      "id": "pvrpv-real-estate|https://pvrpv.com/realestate/|pilitas-166,-puerto-vallarta,-jalisco|condo"
     },
     {
       "propertyType": "House",
-      "location": "Paseo de la Marina, Marina Vallarta, Puerto Vallarta, Jalisco",
+      "address": "Paseo de la Marina 24, Puerto Vallarta, Jalisco",
+      "location": "Puerto Vallarta, Jalisco, Mexico",
       "neighborhood": "Marina Vallarta",
-      "salePriceUsd": 890000,
-      "saleDate": "2026-05-18",
-      "overview": "3-bed marina home near golf and boardwalk amenities; closing details not publicly verified in deed records.",
+      "listingPriceUsd": 890000,
+      "soldPriceUsd": null,
+      "dateAdded": "2026-05-23",
+      "status": "pending",
+      "statusDate": "2026-05-23",
+      "overview": "3-bed marina home near golf club.",
       "sourceName": "Kim Kieler Sold Listings",
       "sourceUrl": "https://kimkieler.net/homepage/sold-listings/",
-      "dataLabel": "Reported Sold / Recently Listed",
-      "id": "kim-kieler-sold-listings|https://kimkieler.net/homepage/sold-listings/|3-bed-marina-home-near-golf-and-boardwalk-amenities;-closing-details-not-publicly-verified-in-deed-records.",
-      "confidence": "Unknown"
+      "previousPriceUsd": null,
+      "id": "kim-kieler-sold-listings|https://kimkieler.net/homepage/sold-listings/|paseo-de-la-marina-24,-puerto-vallarta,-jalisco|house"
     },
     {
       "propertyType": "Land",
-      "location": "Carr. a Barra de Navidad km 7, South Shore, Puerto Vallarta, Jalisco",
+      "address": "Carr. Barra de Navidad km 7, Puerto Vallarta, Jalisco",
+      "location": "Puerto Vallarta, Jalisco, Mexico",
       "neighborhood": "South Shore",
-      "salePriceUsd": 420000,
-      "saleDate": "2026-05-12",
-      "overview": "Hillside parcel with bay-view potential; price reflects active market signal rather than notarial transfer confirmation.",
+      "listingPriceUsd": 420000,
+      "soldPriceUsd": null,
+      "dateAdded": "2026-05-22",
+      "status": "price_reduction",
+      "statusDate": "2026-05-22",
+      "overview": "Hillside parcel with bay-view potential.",
       "sourceName": "Mexico Life Realty Blog",
       "sourceUrl": "https://mexicolife.com/blog/",
-      "dataLabel": "Reported Sold / Recently Listed",
-      "id": "mexico-life-realty-blog|https://mexicolife.com/blog/|hillside-parcel-with-bay-view-potential;-price-reflects-active-market-signal-rather-than-notarial-transfer-confirmation.",
-      "confidence": "Unknown"
-    },
-    {
-      "propertyType": "Apartment",
-      "location": "Calle Morelos, Centro, Puerto Vallarta, Jalisco",
-      "neighborhood": "Centro",
-      "salePriceUsd": 315000,
-      "saleDate": "2026-05-14",
-      "overview": "Downtown apartment with rental appeal and walkability to the Malecón; included as market sample data.",
-      "sourceName": "Point2 Puerto Vallarta",
-      "sourceUrl": "https://www.point2homes.com/MX/Real-Estate-Listings/Jalisco/Puerto-Vallarta.html",
-      "dataLabel": "Sample Market Listing",
-      "id": "point2-puerto-vallarta|https://www.point2homes.com/mx/real-estate-listings/jalisco/puerto-vallarta.html|downtown-apartment-with-rental-appeal-and-walkability-to-the-malecón;-included-as-market-sample-data.",
-      "confidence": "Unknown"
+      "previousPriceUsd": 453600,
+      "id": "mexico-life-realty-blog|https://mexicolife.com/blog/|carr.-barra-de-navidad-km-7,-puerto-vallarta,-jalisco|land"
     },
     {
       "propertyType": "Condo",
-      "location": "Amapas 353, Amapas, Puerto Vallarta, Jalisco",
+      "address": "Amapas 353, Puerto Vallarta, Jalisco",
+      "location": "Puerto Vallarta, Jalisco, Mexico",
       "neighborhood": "Amapas",
-      "salePriceUsd": 760000,
-      "saleDate": "2026-05-09",
-      "overview": "Luxury hillside condo in Amapas with terrace and sunset exposure; represents curated sample market data.",
-      "sourceName": "Local agency public listings",
+      "listingPriceUsd": 760000,
+      "soldPriceUsd": null,
+      "dateAdded": "2026-05-21",
+      "status": "back_on_market",
+      "statusDate": "2026-05-21",
+      "overview": "Luxury hillside condo with sunset terrace.",
+      "sourceName": "Vallarta Real Estate",
       "sourceUrl": "https://www.vallartarealestate.com/",
-      "dataLabel": "Sample Market Listing",
-      "id": "local-agency-public-listings|https://www.vallartarealestate.com/|luxury-hillside-condo-in-amapas-with-terrace-and-sunset-exposure;-represents-curated-sample-market-data.",
-      "confidence": "Unknown"
+      "previousPriceUsd": null,
+      "id": "vallarta-real-estate|https://www.vallartarealestate.com/|amapas-353,-puerto-vallarta,-jalisco|condo"
     },
     {
       "propertyType": "House",
-      "location": "Fluvial Vallarta, Puerto Vallarta, Jalisco",
+      "address": "Lago Titicaca 91, Puerto Vallarta, Jalisco",
+      "location": "Puerto Vallarta, Jalisco, Mexico",
       "neighborhood": "Fluvial Vallarta",
-      "salePriceUsd": 465000,
-      "saleDate": "2026-05-07",
-      "overview": "Modern family home in Fluvial with nearby schools and shopping; included for neighborhood pricing context.",
-      "sourceName": "Public MLS mirror",
+      "listingPriceUsd": 465000,
+      "soldPriceUsd": null,
+      "dateAdded": "2026-05-20",
+      "status": "new",
+      "statusDate": "2026-05-25",
+      "overview": "Modern family home near schools.",
+      "sourceName": "Inmuebles24",
       "sourceUrl": "https://www.inmuebles24.com/",
-      "dataLabel": "Sample Market Listing",
-      "id": "public-mls-mirror|https://www.inmuebles24.com/|modern-family-home-in-fluvial-with-nearby-schools-and-shopping;-included-for-neighborhood-pricing-context.",
-      "confidence": "Unknown"
+      "previousPriceUsd": null,
+      "id": "inmuebles24|https://www.inmuebles24.com/|lago-titicaca-91,-puerto-vallarta,-jalisco|house"
+    },
+    {
+      "propertyType": "Apartment",
+      "address": "Brasil 1448, Puerto Vallarta, Jalisco",
+      "location": "Puerto Vallarta, Jalisco, Mexico",
+      "neighborhood": "5 de Diciembre",
+      "listingPriceUsd": 280000,
+      "soldPriceUsd": null,
+      "dateAdded": "2026-05-19",
+      "status": "new",
+      "statusDate": "2026-05-24",
+      "overview": "Renovated apartment with rooftop access.",
+      "sourceName": "PVRPV Real Estate",
+      "sourceUrl": "https://pvrpv.com/realestate/",
+      "previousPriceUsd": null,
+      "id": "pvrpv-real-estate|https://pvrpv.com/realestate/|brasil-1448,-puerto-vallarta,-jalisco|apartment"
+    },
+    {
+      "propertyType": "Land",
+      "address": "Parcela 17, Puerto Vallarta, Jalisco",
+      "location": "Puerto Vallarta, Jalisco, Mexico",
+      "neighborhood": "El Nogalito",
+      "listingPriceUsd": 235000,
+      "soldPriceUsd": null,
+      "dateAdded": "2026-05-18",
+      "status": "pending",
+      "statusDate": "2026-05-23",
+      "overview": "Build-ready lot with utilities nearby.",
+      "sourceName": "Vallarta Real Estate",
+      "sourceUrl": "https://www.vallartarealestate.com/",
+      "previousPriceUsd": null,
+      "id": "vallarta-real-estate|https://www.vallartarealestate.com/|parcela-17,-puerto-vallarta,-jalisco|land"
     }
   ]
 }

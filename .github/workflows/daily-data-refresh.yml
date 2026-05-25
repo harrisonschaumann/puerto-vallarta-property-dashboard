@@ -1,28 +1,64 @@
-name: Daily Puerto Vallarta Data Refresh
+name: Daily Data Refresh and Deploy
 
 on:
   schedule:
-    - cron: '15 11 * * *'
+    - cron: '15 13 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  refresh:
+  refresh-data:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.x'
-      - name: Refresh dataset
-        run: python3 scripts/fetch_listings.py
-      - name: Commit changes
+          python-version: '3.12'
+
+      - name: Refresh dashboard data
+        run: python scripts/fetch_listings.py
+
+      - name: Commit refreshed data when changed
         run: |
-          if git diff --quiet; then
-            echo "No changes"
-            exit 0
-          fi
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/latest.json
-          git commit -m "chore: daily Puerto Vallarta data refresh"
-          git push
+          if git diff --staged --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "chore: refresh dashboard data"
+            git push
+          fi
+
+      - name: Prepare static site files
+        run: |
+          mkdir -p site/data
+          cp dashboard.html site/index.html
+          cp data/latest.json site/data/latest.json
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: refresh-data
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

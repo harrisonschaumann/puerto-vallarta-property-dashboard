@@ -1,13 +1,13 @@
 {
-  "lastUpdated": "2026-05-25T17:51:20Z",
+  "lastUpdated": "2026-05-25T18:07:01Z",
   "listings": [
     {
       "propertyType": "Condo",
-      "location": "Zona Rom\u00e1ntica, Puerto Vallarta, Jalisco",
-      "neighborhood": "Zona Rom\u00e1ntica",
+      "location": "Zona Romántica, Puerto Vallarta, Jalisco",
+      "neighborhood": "Zona Romántica",
       "salePriceUsd": 495000,
       "saleDate": "2026-05-20",
-      "overview": "Reported sold condo listing in Zona Rom\u00e1ntica (public broker page).",
+      "overview": "Reported sold condo listing in Zona Romántica (public broker page).",
       "sourceName": "PVRPV Real Estate",
       "sourceUrl": "https://pvrpv.com/realestate/",
       "dataLabel": "Reported Sold / Recently Listed"

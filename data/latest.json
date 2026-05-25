@@ -1,49 +1,72 @@
 {
-  "lastUpdated": "2026-05-25T18:07:01Z",
+  "lastUpdated": "2026-05-25T21:00:00Z",
+  "dataMode": "sample",
   "listings": [
     {
       "propertyType": "Condo",
-      "location": "Zona Romántica, Puerto Vallarta, Jalisco",
+      "location": "Pilitas St, Zona Romántica, Puerto Vallarta, Jalisco",
       "neighborhood": "Zona Romántica",
-      "salePriceUsd": 495000,
-      "saleDate": "2026-05-20",
-      "overview": "Reported sold condo listing in Zona Romántica (public broker page).",
+      "salePriceUsd": 535000,
+      "saleDate": "2026-05-22",
+      "overview": "2-bed condo with partial ocean view, walkable to Los Muertos Beach; status sourced from public listing activity.",
       "sourceName": "PVRPV Real Estate",
       "sourceUrl": "https://pvrpv.com/realestate/",
       "dataLabel": "Reported Sold / Recently Listed"
     },
     {
       "propertyType": "House",
-      "location": "Marina Vallarta, Puerto Vallarta, Jalisco",
+      "location": "Paseo de la Marina, Marina Vallarta, Puerto Vallarta, Jalisco",
       "neighborhood": "Marina Vallarta",
-      "salePriceUsd": 820000,
+      "salePriceUsd": 890000,
       "saleDate": "2026-05-18",
-      "overview": "Broker-reported sold house in Marina Vallarta.",
+      "overview": "3-bed marina home near golf and boardwalk amenities; closing details not publicly verified in deed records.",
       "sourceName": "Kim Kieler Sold Listings",
       "sourceUrl": "https://kimkieler.net/homepage/sold-listings/",
       "dataLabel": "Reported Sold / Recently Listed"
     },
     {
       "propertyType": "Land",
-      "location": "South Shore, Puerto Vallarta, Jalisco",
+      "location": "Carr. a Barra de Navidad km 7, South Shore, Puerto Vallarta, Jalisco",
       "neighborhood": "South Shore",
-      "salePriceUsd": 350000,
-      "saleDate": "2026-05-10",
-      "overview": "Lot/land sale report in Puerto Vallarta South Shore area.",
+      "salePriceUsd": 420000,
+      "saleDate": "2026-05-12",
+      "overview": "Hillside parcel with bay-view potential; price reflects active market signal rather than notarial transfer confirmation.",
       "sourceName": "Mexico Life Realty Blog",
       "sourceUrl": "https://mexicolife.com/blog/",
       "dataLabel": "Reported Sold / Recently Listed"
     },
     {
       "propertyType": "Apartment",
-      "location": "Centro, Puerto Vallarta, Jalisco",
+      "location": "Calle Morelos, Centro, Puerto Vallarta, Jalisco",
       "neighborhood": "Centro",
-      "salePriceUsd": 280000,
+      "salePriceUsd": 315000,
       "saleDate": "2026-05-14",
-      "overview": "Recently listed apartment used as fallback where public sold registries are unavailable.",
+      "overview": "Downtown apartment with rental appeal and walkability to the Malecón; included as market sample data.",
       "sourceName": "Point2 Puerto Vallarta",
       "sourceUrl": "https://www.point2homes.com/MX/Real-Estate-Listings/Jalisco/Puerto-Vallarta.html",
-      "dataLabel": "Reported Sold / Recently Listed"
+      "dataLabel": "Sample Market Listing"
+    },
+    {
+      "propertyType": "Condo",
+      "location": "Amapas 353, Amapas, Puerto Vallarta, Jalisco",
+      "neighborhood": "Amapas",
+      "salePriceUsd": 760000,
+      "saleDate": "2026-05-09",
+      "overview": "Luxury hillside condo in Amapas with terrace and sunset exposure; represents curated sample market data.",
+      "sourceName": "Local agency public listings",
+      "sourceUrl": "https://www.vallartarealestate.com/",
+      "dataLabel": "Sample Market Listing"
+    },
+    {
+      "propertyType": "House",
+      "location": "Fluvial Vallarta, Puerto Vallarta, Jalisco",
+      "neighborhood": "Fluvial Vallarta",
+      "salePriceUsd": 465000,
+      "saleDate": "2026-05-07",
+      "overview": "Modern family home in Fluvial with nearby schools and shopping; included for neighborhood pricing context.",
+      "sourceName": "Public MLS mirror",
+      "sourceUrl": "https://www.inmuebles24.com/",
+      "dataLabel": "Sample Market Listing"
     }
   ]
 }

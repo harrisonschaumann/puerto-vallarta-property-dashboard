@@ -101,6 +101,7 @@ if not listings:
 
 payload = {
     "lastUpdated": datetime.datetime.now(datetime.UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
+    "dataMode": "sample",
     "listings": listings,
 }
 

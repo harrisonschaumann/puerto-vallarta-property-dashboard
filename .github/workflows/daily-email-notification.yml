@@ -1,0 +1,27 @@
+name: Daily Dashboard Email
+
+on:
+  schedule:
+    - cron: '5 14 * * *'
+  workflow_dispatch:
+
+jobs:
+  send-email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send dashboard email notification
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "Paua Property Group | Daily Puerto Vallarta Dashboard"
+          to: pauapropertygroup@gmail.com
+          from: ${{ secrets.EMAIL_FROM }}
+          secure: true
+          html_body: |
+            <p>Good morning,</p>
+            <p>Your Puerto Vallarta dashboard has been refreshed.</p>
+            <p><a href="${{ secrets.DASHBOARD_URL }}">Open Dashboard</a></p>
+            <p>— Paua Property Group Automation</p>

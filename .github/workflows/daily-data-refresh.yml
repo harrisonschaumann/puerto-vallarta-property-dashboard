@@ -1,4 +1,4 @@
-name: Daily Data Refresh and Deploy
+name: Daily Data Refresh
 
 on:
   schedule:
@@ -7,16 +7,11 @@ on:
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: false
 
 jobs:
   refresh-data:
     runs-on: ubuntu-latest
+
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -40,25 +35,3 @@ jobs:
             git commit -m "chore: refresh dashboard data"
             git push
           fi
-
-      - name: Prepare static site files
-        run: |
-          mkdir -p site/data
-          cp dashboard.html site/index.html
-          cp data/latest.json site/data/latest.json
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-  deploy:
-    needs: refresh-data
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4

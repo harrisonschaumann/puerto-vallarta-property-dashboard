@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Puerto Vallarta Real Estate Dashboard</title>
+  <style>
+    body{font-family:Arial,sans-serif;margin:20px;background:#f6f8fb;color:#1f2937}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:16px}
+    .card{background:#fff;padding:14px;border-radius:10px;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+    label{display:block;font-size:12px;font-weight:700;margin-bottom:6px}
+    select,input{width:100%;padding:8px;border:1px solid #d1d5db;border-radius:8px}
+    table{width:100%;border-collapse:collapse;background:#fff;border-radius:10px;overflow:hidden}
+    th,td{padding:10px;border-bottom:1px solid #e5e7eb;text-align:left;vertical-align:top;font-size:14px}
+    th{background:#eef2ff}
+    .meta{font-size:12px;color:#6b7280;margin:10px 0}
+    .badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;background:#fef3c7;color:#92400e}
+  </style>
+</head>
+<body>
+  <h1>Puerto Vallarta Real Estate Dashboard</h1>
+  <p>Daily-updated dashboard of recently <strong>sold</strong> properties where available. If sold price/date is unavailable publicly, entries are marked as <span class="badge">Reported Sold / Recently Listed</span>.</p>
+  <div class="meta" id="meta"></div>
+
+  <div class="grid">
+    <div class="card"><label>Property Type</label><select id="typeFilter"><option value="">All</option></select></div>
+    <div class="card"><label>Neighborhood</label><select id="neighborhoodFilter"><option value="">All</option></select></div>
+    <div class="card"><label>Min Price (USD)</label><input id="minPrice" type="number" placeholder="0" /></div>
+    <div class="card"><label>Max Price (USD)</label><input id="maxPrice" type="number" placeholder="2000000" /></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Type</th><th>Address / Location</th><th>Neighborhood</th><th>Sale Price (USD)</th><th>Sale Date</th><th>Overview</th><th>Source</th>
+      </tr>
+    </thead>
+    <tbody id="rows"></tbody>
+  </table>
+
+<script>
+let data=[];
+const fmt=(n)=> n? new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n):'Not public';
+function render(){
+  const type=document.getElementById('typeFilter').value;
+  const hood=document.getElementById('neighborhoodFilter').value;
+  const min=Number(document.getElementById('minPrice').value||0);
+  const max=Number(document.getElementById('maxPrice').value||Number.MAX_SAFE_INTEGER);
+
+  const filtered=data.filter(r=>
+    (!type||r.propertyType===type)&&(!hood||r.neighborhood===hood)&&((r.salePriceUsd||0)>=min)&&((r.salePriceUsd||Number.MAX_SAFE_INTEGER)<=max)
+  );
+  const tbody=document.getElementById('rows');
+  tbody.innerHTML=filtered.map(r=>`<tr>
+    <td>${r.propertyType}<br>${r.dataLabel!=='Sold' ? '<span class="badge">'+r.dataLabel+'</span>':''}</td>
+    <td>${r.location}</td>
+    <td>${r.neighborhood||'N/A'}</td>
+    <td>${fmt(r.salePriceUsd)}</td>
+    <td>${r.saleDate||'Not public'}</td>
+    <td>${r.overview}</td>
+    <td><a href="${r.sourceUrl}" target="_blank" rel="noopener">${r.sourceName}</a></td>
+  </tr>`).join('');
+}
+
+fetch('./data/latest.json').then(r=>r.json()).then(j=>{
+  data=j.listings;
+  document.getElementById('meta').textContent=`Last Updated: ${j.lastUpdated} UTC | Total Listings: ${data.length}`;
+
+  const types=[...new Set(data.map(d=>d.propertyType))].sort();
+  const hoods=[...new Set(data.map(d=>d.neighborhood).filter(Boolean))].sort();
+  for(const t of types){const o=document.createElement('option');o.value=t;o.textContent=t;typeFilter.appendChild(o);}  
+  for(const h of hoods){const o=document.createElement('option');o.value=h;o.textContent=h;neighborhoodFilter.appendChild(o);}  
+
+  ['typeFilter','neighborhoodFilter','minPrice','maxPrice'].forEach(id=>document.getElementById(id).addEventListener('input',render));
+  render();
+});
+</script>
+</body>
+</html>

@@ -6,17 +6,20 @@
   <title>Puerto Vallarta Property Dashboard</title>
   <style>
     :root {
-      --bg: #f3f7ff;
+      --bg: #eef4ff;
       --card: #ffffff;
       --text: #0f172a;
       --muted: #475569;
       --line: #dbe4f0;
       --brand: #0b5fff;
-      --brand-soft: #e8f0ff;
-      --warning-bg: #fff7e6;
+      --brand-2: #0ea5e9;
+      --brand-soft: #eaf2ff;
+      --ok-bg: #eafcf2;
+      --ok-text: #0f6a3f;
+      --warning-bg: #fff8e8;
       --warning-text: #8a5200;
-      --radius: 14px;
-      --shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+      --radius: 16px;
+      --shadow: 0 12px 30px rgba(15, 23, 42, 0.09);
     }
 
     * { box-sizing: border-box; }
@@ -24,33 +27,49 @@
       margin: 0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, #edf3ff 0, var(--bg) 240px);
+      background:
+        radial-gradient(circle at top right, rgba(14,165,233,.12), transparent 34%),
+        radial-gradient(circle at top left, rgba(11,95,255,.10), transparent 38%),
+        linear-gradient(180deg, #eaf1ff 0, var(--bg) 280px);
       line-height: 1.45;
     }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-    .hero, .panel {
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      border: 1px solid var(--line);
-    }
-    .hero { padding: 20px; margin-bottom: 16px; }
-    h1 { margin: 0 0 6px; font-size: clamp(1.5rem, 3vw, 2rem); }
-    .lead, .meta { margin: 0; color: var(--muted); }
+    .container { max-width: 1160px; margin: 0 auto; padding: 22px; }
+
+    .hero, .panel { background: var(--card); border-radius: var(--radius); border: 1px solid var(--line); box-shadow: var(--shadow); }
+    .hero { padding: 22px; margin-bottom: 16px; }
+    h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 3vw, 2.1rem); }
+    .lead, .meta, .small-note { margin: 0; color: var(--muted); }
     .meta { margin-top: 8px; font-size: 0.92rem; }
+
+    .status-row {
+      margin-top: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
     .badge {
-      display: inline-block;
-      padding: 4px 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
       border-radius: 999px;
       font-size: 12px;
-      font-weight: 600;
-      background: var(--warning-bg);
-      color: var(--warning-text);
+      font-weight: 700;
+      border: 1px solid transparent;
     }
+    .badge.warning { background: var(--warning-bg); color: var(--warning-text); border-color: #f8dfb0; }
+    .badge.ok { background: var(--ok-bg); color: var(--ok-text); border-color: #bde7cd; }
+
+    .stats {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .stat { padding: 12px; border: 1px solid var(--line); border-radius: 12px; background: #fbfdff; }
+    .stat .label { color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+    .stat .value { margin-top: 4px; font-size: 1.05rem; font-weight: 700; }
 
     .filters {
       display: grid;
@@ -70,7 +89,7 @@
     }
 
     .table-wrap { overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; min-width: 860px; }
+    table { width: 100%; border-collapse: collapse; min-width: 900px; }
     th, td { text-align: left; padding: 12px; border-bottom: 1px solid #e9eef8; vertical-align: top; }
     th {
       font-size: 12px;
@@ -95,22 +114,33 @@
   <main class="container">
     <section class="hero">
       <h1>Puerto Vallarta Property Dashboard</h1>
-      <p class="lead">Daily-updated dashboard of publicly visible sold-property signals. Where sold price/date is unavailable, listings are labeled as <span class="badge">Reported Sold / Recently Listed</span>.</p>
+      <p class="lead">Daily snapshot of Puerto Vallarta residential market activity with clear source transparency.</p>
       <p class="meta" id="meta">Loading latest data…</p>
+
+      <div class="status-row">
+        <span class="badge warning">Sample + publicly visible listing signals</span>
+        <span class="small-note">This dashboard is currently educational and not deed-level transaction data.</span>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><div class="label">Shown Listings</div><div class="value" id="shownCount">-</div></div>
+        <div class="stat"><div class="label">Median Price</div><div class="value" id="medianPrice">-</div></div>
+        <div class="stat"><div class="label">Neighborhoods</div><div class="value" id="hoodCount">-</div></div>
+      </div>
     </section>
 
     <section class="filters">
       <div class="panel"><label for="typeFilter">Property Type</label><select id="typeFilter"><option value="">All</option></select></div>
       <div class="panel"><label for="neighborhoodFilter">Neighborhood</label><select id="neighborhoodFilter"><option value="">All</option></select></div>
       <div class="panel"><label for="minPrice">Min Price (USD)</label><input id="minPrice" type="number" placeholder="0" min="0" /></div>
-      <div class="panel"><label for="maxPrice">Max Price (USD)</label><input id="maxPrice" type="number" placeholder="2000000" min="0" /></div>
+      <div class="panel"><label for="maxPrice">Max Price (USD)</label><input id="maxPrice" type="number" placeholder="2500000" min="0" /></div>
     </section>
 
     <section class="panel table-wrap">
       <table>
         <thead>
           <tr>
-            <th>Type</th><th>Address / Location</th><th>Neighborhood</th><th>Sale Price (USD)</th><th>Sale Date</th><th>Overview</th><th>Source</th>
+            <th>Type</th><th>Address / Location</th><th>Neighborhood</th><th>Indicative Price (USD)</th><th>Status Date</th><th>Overview</th><th>Source</th>
           </tr>
         </thead>
         <tbody id="rows"></tbody>
@@ -121,7 +151,16 @@
 
 <script>
 let data=[];
-const fmt=(n)=> n? new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n):'Not public';
+const fmt=(n)=> n ? new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n) : 'Not public';
+
+function updateStats(rows){
+  document.getElementById('shownCount').textContent = rows.length;
+  const prices = rows.map(r=>r.salePriceUsd).filter(Boolean).sort((a,b)=>a-b);
+  const median = prices.length ? prices[Math.floor(prices.length/2)] : null;
+  document.getElementById('medianPrice').textContent = fmt(median);
+  const hoodCount = new Set(rows.map(r=>r.neighborhood).filter(Boolean)).size;
+  document.getElementById('hoodCount').textContent = hoodCount;
+}
 
 function render(){
   const type=document.getElementById('typeFilter').value;
@@ -132,8 +171,9 @@ function render(){
   const filtered=data.filter(r=>(!type||r.propertyType===type)&&(!hood||r.neighborhood===hood)&&((r.salePriceUsd||0)>=min)&&((r.salePriceUsd||Number.MAX_SAFE_INTEGER)<=max));
   const tbody=document.getElementById('rows');
   const empty=document.getElementById('empty');
+
   tbody.innerHTML=filtered.map(r=>`<tr>
-    <td>${r.propertyType}<br>${r.dataLabel!=='Sold' ? '<span class="badge">'+r.dataLabel+'</span>':''}</td>
+    <td>${r.propertyType}<br>${r.dataLabel!=='Sold' ? '<span class="badge warning">'+r.dataLabel+'</span>':''}</td>
     <td>${r.location}</td>
     <td>${r.neighborhood||'N/A'}</td>
     <td>${fmt(r.salePriceUsd)}</td>
@@ -141,12 +181,20 @@ function render(){
     <td>${r.overview}</td>
     <td><a href="${r.sourceUrl}" target="_blank" rel="noopener">${r.sourceName}</a></td>
   </tr>`).join('');
+
   empty.hidden = filtered.length !== 0;
+  updateStats(filtered);
 }
 
 fetch('./data/latest.json').then(r=>r.json()).then(j=>{
   data=j.listings;
-  document.getElementById('meta').textContent=`Last Updated: ${j.lastUpdated} UTC • Total Listings: ${data.length}`;
+  const dataMode = j.dataMode || 'sample';
+  const isSample = dataMode !== 'live_verified';
+  document.getElementById('meta').textContent=`Last Updated: ${j.lastUpdated} UTC • Total Listings: ${data.length} • Data Mode: ${dataMode}`;
+
+  const status = document.querySelector('.status-row .badge');
+  status.textContent = isSample ? 'Sample + publicly visible listing signals' : 'Live verified data feed';
+  status.className = `badge ${isSample ? 'warning' : 'ok'}`;
 
   const types=[...new Set(data.map(d=>d.propertyType))].sort();
   const hoods=[...new Set(data.map(d=>d.neighborhood).filter(Boolean))].sort();

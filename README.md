@@ -2,11 +2,27 @@
 
 A beginner-friendly, static dashboard for Puerto Vallarta property activity, designed to run on **GitHub Pages** and refresh data daily with **GitHub Actions**.
 
+## Live dashboard
+
+**GitHub Pages URL:** `https://<your-username>.github.io/puerto-vallarta-property-dashboard/`
+
+> If your dashboard is already deployed, replace `<your-username>` with your GitHub username and keep this exact path.
+
 ## What this project includes
 - A mobile-friendly dashboard (`dashboard.html`) with filters for property type, neighborhood, and price.
 - A daily data refresh script (`scripts/fetch_listings.py`).
 - GitHub Actions workflows for daily data refresh and GitHub Pages deployment.
 - Fallback sample Puerto Vallarta data when live sold-property details are not reliably available.
+
+---
+
+## Data transparency: live vs sample
+
+This dashboard currently defaults to **sample/indicative market data** with public listing signals. It does **not** claim verified deed-level sold transaction history unless `dataMode` is set to `live_verified` in `data/latest.json`.
+
+How this appears in the UI:
+- A status badge at the top of the dashboard.
+- A `Data Mode` value in the meta line (`sample`, `hybrid`, or `live_verified`).
 
 ---
 
@@ -36,6 +52,25 @@ git push origin main
 
 ---
 
+## Next steps: connect a real data source
+
+To move from sample data to a production-grade feed:
+
+1. **Choose a source of truth**
+   - MLS partner export, brokerage back-office CSV/API, or a commercial property-data API.
+2. **Normalize fields in `scripts/fetch_listings.py`**
+   - Map upstream fields into the existing schema (`propertyType`, `location`, `neighborhood`, `salePriceUsd`, `saleDate`, `overview`, `sourceName`, `sourceUrl`, `dataLabel`).
+3. **Set a reliability policy**
+   - Tag records as `Verified Sold`, `Reported Sold / Recently Listed`, or `Sample Market Listing` based on confidence.
+4. **Set `dataMode` in `data/latest.json`**
+   - Use `live_verified` only when sale date + closed price are verifiable.
+5. **Automate validation in CI**
+   - Add schema checks and fail the workflow if required fields are missing.
+6. **Add provenance fields (recommended)**
+   - Add `sourceCapturedAt`, `sourceRecordId`, and `verificationMethod` for auditability.
+
+---
+
 ## Enable GitHub Pages (exact beginner clicks)
 
 1. In GitHub, open your repository page.
@@ -44,32 +79,6 @@ git push origin main
 4. In **Build and deployment**, open the **Source** dropdown.
 5. Select **GitHub Actions**.
 6. Wait a few seconds for GitHub to save this automatically.
-
----
-
-## First-time deploy: where to click
-
-1. Click the **Actions** tab in your repository.
-2. In the left workflow list, click **Deploy Dashboard to GitHub Pages**.
-3. Click **Run workflow** (right side).
-4. In the branch dropdown, leave **main** selected.
-5. Click the green **Run workflow** button.
-6. Wait for the run to finish (green check mark).
-
----
-
-## View your live dashboard URL
-
-After the deploy workflow succeeds:
-
-1. Go back to **Settings → Pages**.
-2. Under **GitHub Pages**, click the URL GitHub shows.
-
-Your URL will be:
-
-`https://<your-username>.github.io/puerto-vallarta-property-dashboard/`
-
-This works because the deploy workflow publishes `dashboard.html` as `index.html` (homepage file) for GitHub Pages.
 
 ---
 
@@ -108,6 +117,6 @@ Sold-property transparency in Puerto Vallarta is limited for public web scraping
 - Some pages provide partial sold context without exact sale date/amount.
 
 ### How this dashboard handles that
-- Entries are clearly labeled as **Reported Sold / Recently Listed** when sold values are not fully public.
+- Entries are clearly labeled by confidence level.
 - The scraper uses public pages as signals, not guaranteed deed-level confirmations.
-- If live scraping returns nothing, the project keeps the dashboard usable with sample Puerto Vallarta records.
+- If live scraping returns nothing, the project keeps the dashboard usable with curated sample Puerto Vallarta records.

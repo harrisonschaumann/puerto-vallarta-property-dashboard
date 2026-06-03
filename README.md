@@ -50,5 +50,7 @@ python scripts/fetch_listings.py
 
 ## Deployment and refresh
 
+- The daily dashboard update workflow refreshes `data/latest.json` and `data/history.json` once per day and deploys the static dashboard to GitHub Pages.
 - GitHub Pages deployment remains static-site compatible (`dashboard.html` + `data/*.json`).
 - Browser auto-refresh is set to 10 minutes by meta refresh and JavaScript interval.
+- Email notifications are disabled; the workflow does not send SMTP, SendGrid, Gmail, or other email messages.

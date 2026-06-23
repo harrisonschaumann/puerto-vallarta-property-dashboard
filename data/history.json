@@ -739,6 +739,23 @@
         "price_reduction": 1,
         "back_on_market": 1
       }
+    },
+    {
+      "runAt": "2026-06-23T16:19:29Z",
+      "listingCount": 8,
+      "new": 0,
+      "changed": 8,
+      "removed": 0,
+      "sold": 1,
+      "avgListPrice": 487500,
+      "avgSoldPrice": 518950,
+      "statusMix": {
+        "new": 3,
+        "sold": 1,
+        "pending": 2,
+        "price_reduction": 1,
+        "back_on_market": 1
+      }
     }
   ]
 }

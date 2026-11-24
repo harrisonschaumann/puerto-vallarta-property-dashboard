@@ -1,24 +1,15 @@
 {
-  "lastUpdated": "2026-11-24T01:19:12Z",
-  "lastUpdatedLocal": "2026-11-23 19:19 UTC-06:00",
+  "lastUpdated": "2026-11-24T23:17:52Z",
+  "lastUpdatedLocal": "2026-11-24 17:17 UTC-06:00",
   "dataMode": "public_web_signals_with_status_inference",
   "newSinceYesterday": 0,
   "changeSummary": {
     "new": 0,
     "removed": 0,
-    "changed": 8,
+    "changed": 0,
     "newIds": [],
     "removedIds": [],
-    "changedIds": [
-      "inmuebles24|https://www.inmuebles24.com/|lago-titicaca-91,-puerto-vallarta,-jalisco|house",
-      "kim-kieler-sold-listings|https://kimkieler.net/homepage/sold-listings/|paseo-de-la-marina-24,-puerto-vallarta,-jalisco|house",
-      "mexico-life-realty-blog|https://mexicolife.com/blog/|carr.-barra-de-navidad-km-7,-puerto-vallarta,-jalisco|land",
-      "point2-puerto-vallarta|https://www.point2homes.com/mx/real-estate-listings/jalisco/puerto-vallarta.html|calle-morelos-118,-puerto-vallarta,-jalisco|apartment",
-      "pvrpv-real-estate|https://pvrpv.com/realestate/|brasil-1448,-puerto-vallarta,-jalisco|apartment",
-      "pvrpv-real-estate|https://pvrpv.com/realestate/|pilitas-166,-puerto-vallarta,-jalisco|condo",
-      "vallarta-real-estate|https://www.vallartarealestate.com/|amapas-353,-puerto-vallarta,-jalisco|condo",
-      "vallarta-real-estate|https://www.vallartarealestate.com/|parcela-17,-puerto-vallarta,-jalisco|land"
-    ]
+    "changedIds": []
   },
   "highlights": {
     "newTodayIds": [
@@ -97,12 +88,6 @@
     },
     "trend": [
       {
-        "runAt": "2026-11-09T23:12:12Z",
-        "listingCount": 8,
-        "new": 0,
-        "sold": 1
-      },
-      {
         "runAt": "2026-11-10T20:38:36Z",
         "listingCount": 8,
         "new": 0,
@@ -176,6 +161,12 @@
       },
       {
         "runAt": "2026-11-22T20:29:58Z",
+        "listingCount": 8,
+        "new": 0,
+        "sold": 1
+      },
+      {
+        "runAt": "2026-11-24T01:19:12Z",
         "listingCount": 8,
         "new": 0,
         "sold": 1
